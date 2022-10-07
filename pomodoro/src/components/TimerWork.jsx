@@ -15,7 +15,6 @@ function TimerWork() {
     setBreakMinutes,
     setBreakSeconds,
     setTotalTimeBreak,
-    isPaused,
     user,
   } = useContext(Context);
 
@@ -29,17 +28,13 @@ function TimerWork() {
       const workMinutesInterval = setInterval(() => {
         setWorkMinutes((prevState) => prevState - 1);
       }, workSeconds === 0 ? (1000) : (workSeconds * 1000));
-      if (isPaused) {
-        clearInterval(workSecondsInterval);
-        clearInterval(workMinutesInterval);
-      }
       if (totalTimeWork === 0) {
         setControlStopWatch('start');
         clearInterval(workSecondsInterval);
         clearInterval(workMinutesInterval);
         setTimeToWork((prevState) => !prevState);
-        setBreakMinutes(user.userBreakMinutes);
-        setBreakSeconds(user.userBreakSeconds);
+        setBreakMinutes(+user.userBreakMinutes);
+        setBreakSeconds(+user.userBreakSeconds);
         setTotalTimeBreak(user.totalTimeBreak);
       }
       setTimeout(() => {

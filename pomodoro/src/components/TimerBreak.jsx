@@ -33,8 +33,8 @@ function TimerBreak() {
         clearInterval(breakSecondsInterval);
         clearInterval(breakMinutesInterval);
         setTimeToWork((prevState) => !prevState);
-        setWorkMinutes(user.userWorkMinutes);
-        setWorkSeconds(user.userWorkSeconds);
+        setWorkMinutes(+user.userWorkMinutes);
+        setWorkSeconds(+user.userWorkSeconds);
         setTotalTimeWork(user.totalTimeWork);
       }
       setTimeout(() => {

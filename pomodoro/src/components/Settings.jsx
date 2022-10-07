@@ -46,8 +46,8 @@ function Settings() {
     const {
       userWorkMinutes, userWorkSeconds, userBreakMinutes, userBreakSeconds,
     } = user;
-    let totalTimeWork = (userWorkMinutes * 60) + userWorkSeconds - userWorkMinutes;
-    let totalTimeBreak = (userBreakMinutes * 60) + userBreakSeconds - userBreakMinutes;
+    let totalTimeWork = (+userWorkMinutes * 60) + (+userWorkSeconds) - (+userWorkMinutes);
+    let totalTimeBreak = (+userBreakMinutes * 60) + (+userBreakSeconds) - (+userBreakMinutes);
     if (totalTimeWork === 59) {
       totalTimeWork = 60;
     }
@@ -59,10 +59,10 @@ function Settings() {
       window.clearTimeout(i);
     }
     setControlStopWatch('not started');
-    setWorkSeconds(userWorkSeconds);
-    setWorkMinutes(userWorkMinutes);
-    setBreakMinutes(userBreakMinutes);
-    setBreakSeconds(userBreakSeconds);
+    setWorkSeconds(+userWorkSeconds);
+    setWorkMinutes(+userWorkMinutes);
+    setBreakMinutes(+userBreakMinutes);
+    setBreakSeconds(+userBreakSeconds);
     setTotalTimeWork(totalTimeWork);
     setTotalTimeBreak(totalTimeBreak);
     setIsPaused(false);
