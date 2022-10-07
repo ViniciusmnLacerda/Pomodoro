@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [minutes, setMinutes] = useState(1);
+  const [minutes, setMinutes] = useState(2);
   const [seconds, setSeconds] = useState(3);
-  const [controlStopWatch, setControlStopWatch] = useState(false);
-  const [totalTime, setTotalTime] = useState((minutes * 60) + seconds);
+  const [controlStopWatch, setControlStopWatch] = useState('not started');
+  const [totalTime, setTotalTime] = useState((minutes * 60) + seconds - minutes);
 
   const value = {
     minutes,

@@ -32,7 +32,7 @@ function TimerWork() {
       }
       setTimeout(() => {
         if (totalTime > 0) {
-          setSeconds(60);
+          setSeconds(59);
           clearInterval(secondsInterval);
           setControlStopWatch('start');
           clearInterval(minutesInterval);
