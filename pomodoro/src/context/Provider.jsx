@@ -4,20 +4,36 @@ import React, { useState } from 'react';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [minutes, setMinutes] = useState(2);
-  const [seconds, setSeconds] = useState(3);
+  const [workMinutes, setWorkMinutes] = useState(1);
+  const [workSeconds, setWorkSeconds] = useState(5);
+  const [breakMinutes, setBreakMinutes] = useState(1);
+  const [breakSeconds, setBreakSeconds] = useState(2);
   const [controlStopWatch, setControlStopWatch] = useState('not started');
-  const [totalTime, setTotalTime] = useState((minutes * 60) + seconds - minutes);
+  const [timeToWork, setTimeToWork] = useState(true);
+  const [
+    totalTimeWork, setTotalTimeWork,
+  ] = useState((workMinutes * 60) + workSeconds - workMinutes);
+  const [
+    totalTimeBreak, setTotalTimeBreak,
+  ] = useState((breakMinutes * 60) + breakSeconds - breakMinutes);
 
   const value = {
-    minutes,
-    seconds,
-    totalTime,
+    workMinutes,
+    workSeconds,
+    totalTimeWork,
     controlStopWatch,
+    timeToWork,
+    breakMinutes,
+    breakSeconds,
+    totalTimeBreak,
     setControlStopWatch,
-    setMinutes,
-    setSeconds,
-    setTotalTime,
+    setWorkMinutes,
+    setWorkSeconds,
+    setTotalTimeWork,
+    setTimeToWork,
+    setBreakSeconds,
+    setBreakMinutes,
+    setTotalTimeBreak,
   };
 
   return (

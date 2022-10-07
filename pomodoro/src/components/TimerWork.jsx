@@ -3,48 +3,55 @@ import Context from '../context/Context';
 
 function TimerWork() {
   const {
-    minutes,
-    seconds,
+    workMinutes,
+    workSeconds,
     controlStopWatch,
     setControlStopWatch,
-    setTotalTime,
-    setSeconds,
-    setMinutes,
-    totalTime,
+    setTotalTimeWork,
+    setWorkSeconds,
+    setWorkMinutes,
+    totalTimeWork,
+    setTimeToWork,
+    setBreakMinutes,
+    setBreakSeconds,
+    setTotalTimeBreak,
   } = useContext(Context);
 
   useEffect(() => {
     if (controlStopWatch === 'start') {
       setControlStopWatch('in progress');
-      const secondsInterval = setInterval(() => {
-        setTotalTime((prevState) => prevState - 1);
-        setSeconds((prevState) => prevState - 1);
+      const workSecondsInterval = setInterval(() => {
+        setTotalTimeWork((prevState) => prevState - 1);
+        setWorkSeconds((prevState) => prevState - 1);
       }, 1000);
-      const minutesInterval = setInterval(() => {
-        setMinutes((prevState) => prevState - 1);
-      }, seconds * 1000);
-      if (totalTime === 0) {
-        setControlStopWatch('finish');
-        clearInterval(secondsInterval);
-        clearInterval(minutesInterval);
-        setSeconds(0);
-        setMinutes(0);
+      const workMinutesInterval = setInterval(() => {
+        setWorkMinutes((prevState) => prevState - 1);
+      }, workSeconds * 1000);
+      if (totalTimeWork === 0) {
+        setControlStopWatch('start');
+        clearInterval(workSecondsInterval);
+        clearInterval(workMinutesInterval);
+        setTimeToWork((prevState) => !prevState);
+        setBreakMinutes(1);
+        setBreakSeconds(2);
+        setTotalTimeBreak(61);
       }
       setTimeout(() => {
-        if (totalTime > 0) {
-          setSeconds(59);
-          clearInterval(secondsInterval);
+        if (totalTimeWork > 0) {
+          setWorkSeconds(59);
+          clearInterval(workSecondsInterval);
           setControlStopWatch('start');
-          clearInterval(minutesInterval);
+          clearInterval(workMinutesInterval);
         }
-      }, seconds * 1000);
+      }, workSeconds * 1000);
     }
-  }, [controlStopWatch, totalTime]);
+  }, [controlStopWatch, totalTimeWork]);
 
   return (
     <div>
-      <p>{`Minutes: ${minutes}`}</p>
-      <p>{`Seconds: ${seconds}`}</p>
+      <p>{`work Minutes: ${workMinutes}`}</p>
+      <p>{`work Seconds: ${workSeconds}`}</p>
+      <p>WORK</p>
     </div>
   );
 }

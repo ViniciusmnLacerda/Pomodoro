@@ -1,13 +1,11 @@
 import React from 'react';
-import StartButton from './components/StartButton';
-import TimerWork from './components/TimerWork';
 import Provider from './context/Provider';
+import Pomodoro from './components/Pomodoro';
 
 function App() {
   return (
     <Provider>
-      <TimerWork />
-      <StartButton />
+      <Pomodoro />
     </Provider>
   );
 }
