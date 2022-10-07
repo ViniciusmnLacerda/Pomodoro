@@ -3,7 +3,6 @@ import Context from '../context/Context';
 
 function TimerWork() {
   const {
-    hours,
     minutes,
     seconds,
     controlStopWatch,
@@ -44,7 +43,6 @@ function TimerWork() {
 
   return (
     <div>
-      <p>{`Hours: ${hours}`}</p>
       <p>{`Minutes: ${minutes}`}</p>
       <p>{`Seconds: ${seconds}`}</p>
     </div>
