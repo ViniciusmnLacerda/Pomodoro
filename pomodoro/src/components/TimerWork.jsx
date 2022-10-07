@@ -15,6 +15,7 @@ function TimerWork() {
     setBreakMinutes,
     setBreakSeconds,
     setTotalTimeBreak,
+    isPaused,
   } = useContext(Context);
 
   useEffect(() => {
@@ -27,6 +28,10 @@ function TimerWork() {
       const workMinutesInterval = setInterval(() => {
         setWorkMinutes((prevState) => prevState - 1);
       }, workSeconds * 1000);
+      if (isPaused) {
+        clearInterval(workSecondsInterval);
+        clearInterval(workMinutesInterval);
+      }
       if (totalTimeWork === 0) {
         setControlStopWatch('start');
         clearInterval(workSecondsInterval);
@@ -45,7 +50,7 @@ function TimerWork() {
         }
       }, workSeconds * 1000);
     }
-  }, [controlStopWatch, totalTimeWork]);
+  }, [controlStopWatch, totalTimeWork, isPaused]);
 
   return (
     <div>

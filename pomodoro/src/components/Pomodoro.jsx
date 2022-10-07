@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
+import PauseButton from './PauseButton';
 import StartButton from './StartButton';
 import TimerBreak from './TimerBreak';
 import TimerWork from './TimerWork';
@@ -14,6 +15,7 @@ function Pomodoro() {
         <TimerBreak />
       )}
       <StartButton />
+      <PauseButton />
     </>
   );
 }

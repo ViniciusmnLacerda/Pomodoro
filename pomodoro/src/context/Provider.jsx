@@ -5,11 +5,12 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [workMinutes, setWorkMinutes] = useState(1);
-  const [workSeconds, setWorkSeconds] = useState(5);
+  const [workSeconds, setWorkSeconds] = useState(10);
   const [breakMinutes, setBreakMinutes] = useState(1);
   const [breakSeconds, setBreakSeconds] = useState(2);
   const [controlStopWatch, setControlStopWatch] = useState('not started');
   const [timeToWork, setTimeToWork] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [
     totalTimeWork, setTotalTimeWork,
   ] = useState((workMinutes * 60) + workSeconds - workMinutes);
@@ -26,6 +27,7 @@ function Provider({ children }) {
     breakMinutes,
     breakSeconds,
     totalTimeBreak,
+    isPaused,
     setControlStopWatch,
     setWorkMinutes,
     setWorkSeconds,
@@ -34,6 +36,7 @@ function Provider({ children }) {
     setBreakSeconds,
     setBreakMinutes,
     setTotalTimeBreak,
+    setIsPaused,
   };
 
   return (
