@@ -20,18 +20,18 @@ function PauseButton() {
 
   const handleClick = () => {
     if (!isPaused) {
-      setBreakSeconds(breakSeconds);
-      setBreakMinutes(breakMinutes);
-      setWorkSeconds(workSeconds);
-      setWorkMinutes(workMinutes);
-      setTotalTimeWork((workMinutes * 60) + workSeconds - workMinutes);
-      setTotalTimeBreak((breakMinutes * 60) + breakSeconds - breakMinutes);
       setIsPaused(true);
       setControlStopWatch('not started');
       for (let i = 0; i < 9999; i += 1) {
         window.clearInterval(i);
         window.clearTimeout(i);
       }
+      setBreakSeconds(breakSeconds);
+      setBreakMinutes(breakMinutes);
+      setWorkSeconds(workSeconds);
+      setWorkMinutes(workMinutes);
+      setTotalTimeWork((workMinutes * 60) + workSeconds - workMinutes);
+      setTotalTimeBreak((breakMinutes * 60) + breakSeconds - breakMinutes);
     } else {
       setIsPaused(false);
       setControlStopWatch('start');
