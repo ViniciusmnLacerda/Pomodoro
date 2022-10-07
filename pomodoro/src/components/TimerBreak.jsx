@@ -15,6 +15,7 @@ function TimerBreak() {
     setWorkMinutes,
     setWorkSeconds,
     setTotalTimeWork,
+    user,
   } = useContext(Context);
 
   useEffect(() => {
@@ -26,15 +27,15 @@ function TimerBreak() {
       }, 1000);
       const breakMinutesInterval = setInterval(() => {
         setBreakMinutes((prevState) => prevState - 1);
-      }, breakSeconds * 1000);
+      }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
       if (totalTimeBreak === 0) {
         setControlStopWatch('start');
         clearInterval(breakSecondsInterval);
         clearInterval(breakMinutesInterval);
         setTimeToWork((prevState) => !prevState);
-        setWorkMinutes(1);
-        setWorkSeconds(5);
-        setTotalTimeWork(64);
+        setWorkMinutes(user.userWorkMinutes);
+        setWorkSeconds(user.userWorkSeconds);
+        setTotalTimeWork(user.totalTimeWork);
       }
       setTimeout(() => {
         if (totalTimeBreak > 0) {
@@ -43,7 +44,7 @@ function TimerBreak() {
           setControlStopWatch('start');
           clearInterval(breakMinutesInterval);
         }
-      }, breakSeconds * 1000);
+      }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
     }
   }, [controlStopWatch, totalTimeBreak]);
 

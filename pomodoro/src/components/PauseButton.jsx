@@ -16,12 +16,13 @@ function PauseButton() {
     setBreakMinutes,
     setTotalTimeWork,
     setTotalTimeBreak,
+    wasStarted,
   } = useContext(Context);
 
   const handleClick = () => {
     if (!isPaused) {
       setIsPaused(true);
-      setControlStopWatch('not started');
+      setControlStopWatch('paused');
       for (let i = 0; i < 9999; i += 1) {
         window.clearInterval(i);
         window.clearTimeout(i);
@@ -42,6 +43,7 @@ function PauseButton() {
     <button
       type="button"
       onClick={handleClick}
+      disabled={!wasStarted}
     >
       {isPaused ? ('Continue') : ('Pause')}
     </button>
