@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
 import PauseButton from './PauseButton';
+import RestartButton from './RestartButton';
 import Settings from './Settings';
 import SettingsButton from './SettingsButton';
 import StartButton from './StartButton';
@@ -20,6 +21,7 @@ function Pomodoro() {
       <PauseButton />
       <SettingsButton />
       {openSettings && <Settings />}
+      <RestartButton />
     </>
   );
 }

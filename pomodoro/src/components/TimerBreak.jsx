@@ -28,23 +28,24 @@ function TimerBreak() {
       const breakMinutesInterval = setInterval(() => {
         setBreakMinutes((prevState) => prevState - 1);
       }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
-      if (totalTimeBreak === 0) {
-        setControlStopWatch('start');
-        clearInterval(breakSecondsInterval);
-        clearInterval(breakMinutesInterval);
-        setTimeToWork((prevState) => !prevState);
-        setWorkMinutes(+user.userWorkMinutes);
-        setWorkSeconds(+user.userWorkSeconds);
-        setTotalTimeWork(user.totalTimeWork);
-      }
-      setTimeout(() => {
+      const timeOut = setTimeout(() => {
         if (totalTimeBreak > 0) {
           setBreakSeconds(59);
           clearInterval(breakSecondsInterval);
-          setControlStopWatch('start');
           clearInterval(breakMinutesInterval);
+          setControlStopWatch('start');
         }
       }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
+      if (totalTimeBreak === 0) {
+        clearInterval(breakSecondsInterval);
+        clearInterval(breakMinutesInterval);
+        clearTimeout(timeOut);
+        setWorkMinutes(+user.userWorkMinutes);
+        setWorkSeconds(+user.userWorkSeconds);
+        setTotalTimeWork(user.totalTimeWork);
+        setTimeToWork((prevState) => !prevState);
+        setControlStopWatch('start');
+      }
     }
   }, [controlStopWatch, totalTimeBreak]);
 

@@ -12,6 +12,7 @@ function Settings() {
     setTotalTimeWork,
     setTotalTimeBreak,
     setOpenSettings,
+    setTimeToWork,
     wasStarted,
     setWasStarted,
     user,
@@ -44,7 +45,10 @@ function Settings() {
       window.clearTimeout(i);
     }
     const {
-      userWorkMinutes, userWorkSeconds, userBreakMinutes, userBreakSeconds,
+      userWorkMinutes,
+      userWorkSeconds,
+      userBreakMinutes,
+      userBreakSeconds,
     } = user;
     let totalTimeWork = (+userWorkMinutes * 60) + (+userWorkSeconds) - (+userWorkMinutes);
     let totalTimeBreak = (+userBreakMinutes * 60) + (+userBreakSeconds) - (+userBreakMinutes);
@@ -53,10 +57,6 @@ function Settings() {
     }
     if (userBreakSeconds === 0) {
       totalTimeBreak += 1;
-    }
-    for (let i = 0; i < 9999; i += 1) {
-      window.clearInterval(i);
-      window.clearTimeout(i);
     }
     setControlStopWatch('not started');
     setWorkSeconds(+userWorkSeconds);
@@ -68,6 +68,7 @@ function Settings() {
     setIsPaused(false);
     setWasStarted(false);
     setOpenSettings(false);
+    setTimeToWork(false);
     setUser({
       ...user,
       totalTimeBreak,

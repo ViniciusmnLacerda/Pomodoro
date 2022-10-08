@@ -13,18 +13,15 @@ function Provider({ children }) {
   const [isPaused, setIsPaused] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
   const [wasStarted, setWasStarted] = useState(false);
-  const [totalTimeWork, setTotalTimeWork,
-  ] = useState((workMinutes * 60) + workSeconds - workMinutes);
-  const [
-    totalTimeBreak, setTotalTimeBreak,
-  ] = useState((breakMinutes * 60) + breakSeconds - breakMinutes);
+  const [totalTimeWork, setTotalTimeWork] = useState(1771);
+  const [totalTimeBreak, setTotalTimeBreak] = useState(296);
   const [user, setUser] = useState({
     userWorkMinutes: 30,
     userWorkSeconds: 0,
     userBreakMinutes: 5,
     userBreakSeconds: 0,
-    totalTimeWork: 1770,
-    totalTimeBreak: 295,
+    totalTimeWork: 1771,
+    totalTimeBreak: 296,
   });
 
   const value = {
