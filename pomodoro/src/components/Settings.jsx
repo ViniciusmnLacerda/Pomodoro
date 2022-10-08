@@ -48,11 +48,11 @@ function Settings() {
     } = user;
     let totalTimeWork = (+userWorkMinutes * 60) + (+userWorkSeconds) - (+userWorkMinutes);
     let totalTimeBreak = (+userBreakMinutes * 60) + (+userBreakSeconds) - (+userBreakMinutes);
-    if (totalTimeWork === 59) {
-      totalTimeWork = 60;
+    if (userWorkSeconds === 0) {
+      totalTimeWork += 1;
     }
-    if (totalTimeBreak === 59) {
-      totalTimeBreak = 60;
+    if (userBreakSeconds === 0) {
+      totalTimeBreak += 1;
     }
     for (let i = 0; i < 9999; i += 1) {
       window.clearInterval(i);
