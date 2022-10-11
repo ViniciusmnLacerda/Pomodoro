@@ -16,14 +16,17 @@ function SettingsButton() {
     setTotalTimeWork,
     setTotalTimeBreak,
     setOpenSettings,
+    wasStarted,
   } = useContext(Context);
 
   const handleClick = () => {
-    setIsPaused(true);
-    setControlStopWatch('not started');
-    for (let i = 0; i < 9999; i += 1) {
-      window.clearInterval(i);
-      window.clearTimeout(i);
+    if (wasStarted) {
+      setIsPaused(true);
+      setControlStopWatch('not started');
+      for (let i = 0; i < 9999; i += 1) {
+        window.clearInterval(i);
+        window.clearTimeout(i);
+      }
     }
     setBreakSeconds(breakSeconds);
     setBreakMinutes(breakMinutes);

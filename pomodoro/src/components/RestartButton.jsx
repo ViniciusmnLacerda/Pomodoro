@@ -41,7 +41,7 @@ function RestartButton() {
     setIsPaused(false);
     setWasStarted(false);
     setOpenSettings(false);
-    setTimeToWork(false);
+    setTimeToWork(true);
   };
 
   return (

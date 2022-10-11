@@ -68,7 +68,7 @@ function Settings() {
     setIsPaused(false);
     setWasStarted(false);
     setOpenSettings(false);
-    setTimeToWork(false);
+    setTimeToWork(true);
     setUser({
       ...user,
       totalTimeBreak,
