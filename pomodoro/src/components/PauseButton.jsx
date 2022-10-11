@@ -6,17 +6,11 @@ function PauseButton() {
     isPaused,
     setIsPaused,
     setControlStopWatch,
-    workMinutes,
-    workSeconds,
-    setWorkSeconds,
-    setWorkMinutes,
-    breakMinutes,
-    breakSeconds,
-    setBreakSeconds,
-    setBreakMinutes,
     setTotalTimeWork,
     setTotalTimeBreak,
     wasStarted,
+    totalTimeBreak,
+    totalTimeWork,
   } = useContext(Context);
 
   const handleClick = () => {
@@ -25,14 +19,9 @@ function PauseButton() {
       setControlStopWatch('paused');
       for (let i = 0; i < 9999; i += 1) {
         window.clearInterval(i);
-        window.clearTimeout(i);
       }
-      setBreakSeconds(breakSeconds);
-      setBreakMinutes(breakMinutes);
-      setWorkSeconds(workSeconds);
-      setWorkMinutes(workMinutes);
-      setTotalTimeWork((workMinutes * 60) + workSeconds - workMinutes);
-      setTotalTimeBreak((breakMinutes * 60) + breakSeconds - breakMinutes);
+      setTotalTimeWork(totalTimeWork);
+      setTotalTimeBreak(totalTimeBreak);
     } else {
       setIsPaused(false);
       setControlStopWatch('start');

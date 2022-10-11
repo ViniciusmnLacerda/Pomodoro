@@ -3,57 +3,39 @@ import Context from '../context/Context';
 
 function TimerWork() {
   const {
-    workMinutes,
-    workSeconds,
     controlStopWatch,
-    setControlStopWatch,
     setTotalTimeWork,
-    setWorkSeconds,
-    setWorkMinutes,
     totalTimeWork,
     setTimeToWork,
-    setBreakMinutes,
-    setBreakSeconds,
     setTotalTimeBreak,
     user,
   } = useContext(Context);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (controlStopWatch === 'start') {
-      setControlStopWatch('in progress');
       const workSecondsInterval = setInterval(() => {
         setTotalTimeWork((prevState) => prevState - 1);
-        setWorkSeconds((prevState) => prevState - 1);
       }, 1000);
-      const workMinutesInterval = setInterval(() => {
-        setWorkMinutes((prevState) => prevState - 1);
-      }, workSeconds === 0 ? (1000) : (workSeconds * 1000));
-      const timeOut = setTimeout(() => {
-        if (totalTimeWork > 0) {
-          setWorkSeconds(59);
-          clearInterval(workSecondsInterval);
-          clearInterval(workMinutesInterval);
-          setControlStopWatch('start');
-        }
-      }, workSeconds === 0 ? (1000) : (workSeconds * 1000));
       if (totalTimeWork === 0) {
         clearInterval(workSecondsInterval);
-        clearInterval(workMinutesInterval);
-        clearTimeout(timeOut);
-        setBreakMinutes(+user.userBreakMinutes);
-        setBreakSeconds(+user.userBreakSeconds);
-        setTotalTimeBreak(user.totalTimeBreak);
+        setTotalTimeBreak(user.userTotalTimeBreak);
         setTimeToWork((prevState) => !prevState);
-        setControlStopWatch('start');
       }
+      return () => clearInterval(workSecondsInterval);
     }
   }, [controlStopWatch, totalTimeWork]);
 
+  const setTimeLeft = () => {
+    const timeLeft = `${Math.floor(totalTimeWork / 60) < 10 ? '0' : ''}${Math.floor(totalTimeWork / 60)}:${totalTimeWork % 60 > 9 ? (totalTimeWork % 60) : (`0${totalTimeWork % 60}`)}`;
+    return timeLeft;
+  };
+
   return (
     <div>
-      <p>{`work Minutes: ${workMinutes}`}</p>
-      <p>{`work Seconds: ${workSeconds}`}</p>
+      <p>{`work total: ${totalTimeWork}`}</p>
       <p>WORK</p>
+      <p>{setTimeLeft()}</p>
     </div>
   );
 }
