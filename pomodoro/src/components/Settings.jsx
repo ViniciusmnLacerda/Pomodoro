@@ -34,7 +34,7 @@ function Settings() {
     const { name, value } = target;
     setUser({
       ...user,
-      [name]: value,
+      [name]: +value,
     });
   };
 
@@ -127,6 +127,17 @@ function Settings() {
             />
           </label>
         </fieldset>
+        <label htmlFor="sessions">
+          Sessions
+          <input
+            type="number"
+            id="sessions"
+            name="sessions"
+            min="1"
+            value={user.sessions}
+            onChange={handleChange}
+          />
+        </label>
       </form>
       <button
         type="button"

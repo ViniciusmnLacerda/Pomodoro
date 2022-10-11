@@ -27,15 +27,16 @@ function TimerWork() {
   }, [controlStopWatch, totalTimeWork]);
 
   const setTimeLeft = () => {
-    const timeLeft = `${Math.floor(totalTimeWork / 60) < 10 ? '0' : ''}${Math.floor(totalTimeWork / 60)}:${totalTimeWork % 60 > 9 ? (totalTimeWork % 60) : (`0${totalTimeWork % 60}`)}`;
+    const timeLeft = `${Math.floor(totalTimeWork / 60) < 10
+      ? '0' : ''}${Math.floor(totalTimeWork / 60)}:${totalTimeWork % 60 > 9
+      ? (totalTimeWork % 60) : (`0${totalTimeWork % 60}`)}`;
     return timeLeft;
   };
 
   return (
     <div>
-      <p>{`work total: ${totalTimeWork}`}</p>
-      <p>WORK</p>
       <p>{setTimeLeft()}</p>
+      <p>WORK</p>
     </div>
   );
 }

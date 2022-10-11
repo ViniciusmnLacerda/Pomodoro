@@ -18,6 +18,7 @@ function Provider({ children }) {
     userBreakSeconds: 0,
     userTotalTimeWork: 1800,
     userTotalTimeBreak: 300,
+    sessions: 5,
   });
 
   const value = {

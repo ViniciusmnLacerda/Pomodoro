@@ -27,15 +27,16 @@ function TimerBreak() {
   }, [controlStopWatch, totalTimeBreak]);
 
   const setTimeLeft = () => {
-    const timeLeft = `${Math.floor(totalTimeBreak / 60) < 10 ? '0' : ''}${Math.floor(totalTimeBreak / 60)}:${totalTimeBreak % 60 > 9 ? (totalTimeBreak % 60) : (`0${totalTimeBreak % 60}`)}`;
+    const timeLeft = `${Math.floor(totalTimeBreak / 60) < 10
+      ? '0' : ''}${Math.floor(totalTimeBreak / 60)}:${totalTimeBreak % 60 > 9
+      ? (totalTimeBreak % 60) : (`0${totalTimeBreak % 60}`)}`;
     return timeLeft;
   };
 
   return (
     <div>
-      <p>{`break total: ${totalTimeBreak}`}</p>
-      <p>BREAK</p>
       <p>{setTimeLeft()}</p>
+      <p>BREAK</p>
     </div>
   );
 }
