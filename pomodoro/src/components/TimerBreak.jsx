@@ -3,57 +3,39 @@ import Context from '../context/Context';
 
 function TimerBreak() {
   const {
-    breakMinutes,
-    breakSeconds,
     controlStopWatch,
-    setControlStopWatch,
     setTotalTimeBreak,
-    setBreakSeconds,
-    setBreakMinutes,
     totalTimeBreak,
     setTimeToWork,
-    setWorkMinutes,
-    setWorkSeconds,
     setTotalTimeWork,
     user,
   } = useContext(Context);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (controlStopWatch === 'start') {
-      setControlStopWatch('in progress');
       const breakSecondsInterval = setInterval(() => {
         setTotalTimeBreak((prevState) => prevState - 1);
-        setBreakSeconds((prevState) => prevState - 1);
       }, 1000);
-      const breakMinutesInterval = setInterval(() => {
-        setBreakMinutes((prevState) => prevState - 1);
-      }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
-      const timeOut = setTimeout(() => {
-        if (totalTimeBreak > 0) {
-          setBreakSeconds(59);
-          clearInterval(breakSecondsInterval);
-          clearInterval(breakMinutesInterval);
-          setControlStopWatch('start');
-        }
-      }, breakSeconds === 0 ? (1000) : (breakSeconds * 1000));
       if (totalTimeBreak === 0) {
         clearInterval(breakSecondsInterval);
-        clearInterval(breakMinutesInterval);
-        clearTimeout(timeOut);
-        setWorkMinutes(+user.userWorkMinutes);
-        setWorkSeconds(+user.userWorkSeconds);
-        setTotalTimeWork(user.totalTimeWork);
+        setTotalTimeWork(user.userTotalTimeWork);
         setTimeToWork((prevState) => !prevState);
-        setControlStopWatch('start');
       }
+      return () => clearInterval(breakSecondsInterval);
     }
   }, [controlStopWatch, totalTimeBreak]);
 
+  const setTimeLeft = () => {
+    const timeLeft = `${Math.floor(totalTimeBreak / 60) < 10 ? '0' : ''}${Math.floor(totalTimeBreak / 60)}:${totalTimeBreak % 60 > 9 ? (totalTimeBreak % 60) : (`0${totalTimeBreak % 60}`)}`;
+    return timeLeft;
+  };
+
   return (
     <div>
-      <p>{`break Minutes: ${breakMinutes}`}</p>
-      <p>{`break Seconds: ${breakSeconds}`}</p>
+      <p>{`break total: ${totalTimeBreak}`}</p>
       <p>BREAK</p>
+      <p>{setTimeLeft()}</p>
     </div>
   );
 }

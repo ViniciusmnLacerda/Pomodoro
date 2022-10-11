@@ -5,10 +5,6 @@ function Settings() {
   const {
     setIsPaused,
     setControlStopWatch,
-    setWorkSeconds,
-    setWorkMinutes,
-    setBreakSeconds,
-    setBreakMinutes,
     setTotalTimeWork,
     setTotalTimeBreak,
     setOpenSettings,
@@ -17,15 +13,18 @@ function Settings() {
     setWasStarted,
     user,
     setUser,
+    totalTimeBreak,
+    totalTimeWork,
   } = useContext(Context);
 
   const closeSettings = () => {
     for (let i = 0; i < 9999; i += 1) {
       window.clearInterval(i);
-      window.clearTimeout(i);
     }
     setOpenSettings(false);
     if (wasStarted) {
+      setTotalTimeWork(totalTimeWork);
+      setTotalTimeBreak(totalTimeBreak);
       setIsPaused(false);
       setControlStopWatch('start');
     }
@@ -42,7 +41,6 @@ function Settings() {
   const saveSettings = () => {
     for (let i = 0; i < 9999; i += 1) {
       window.clearInterval(i);
-      window.clearTimeout(i);
     }
     const {
       userWorkMinutes,
@@ -50,29 +48,19 @@ function Settings() {
       userBreakMinutes,
       userBreakSeconds,
     } = user;
-    let totalTimeWork = (+userWorkMinutes * 60) + (+userWorkSeconds) - (+userWorkMinutes);
-    let totalTimeBreak = (+userBreakMinutes * 60) + (+userBreakSeconds) - (+userBreakMinutes);
-    if (userWorkSeconds === 0) {
-      totalTimeWork += 1;
-    }
-    if (userBreakSeconds === 0) {
-      totalTimeBreak += 1;
-    }
+    const userTotalTimeWork = (+userWorkMinutes * 60) + (+userWorkSeconds);
+    const userTotalTimeBreak = (+userBreakMinutes * 60) + (+userBreakSeconds);
     setControlStopWatch('not started');
-    setWorkSeconds(+userWorkSeconds);
-    setWorkMinutes(+userWorkMinutes);
-    setBreakMinutes(+userBreakMinutes);
-    setBreakSeconds(+userBreakSeconds);
-    setTotalTimeWork(totalTimeWork);
-    setTotalTimeBreak(totalTimeBreak);
+    setTotalTimeWork(userTotalTimeWork);
+    setTotalTimeBreak(userTotalTimeBreak);
     setIsPaused(false);
     setWasStarted(false);
     setOpenSettings(false);
     setTimeToWork(true);
     setUser({
       ...user,
-      totalTimeBreak,
-      totalTimeWork,
+      userTotalTimeBreak,
+      userTotalTimeWork,
     });
   };
 
