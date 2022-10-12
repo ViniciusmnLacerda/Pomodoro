@@ -4,7 +4,16 @@
   box-sizing: border-box;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   width: 100vw;
   height: 100vh;
+  background: linear-gradient(60deg, #135058, #F1F2B5);
 }

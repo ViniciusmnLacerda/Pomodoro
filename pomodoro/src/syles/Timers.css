@@ -1,0 +1,26 @@
+.timer {
+  width: 100%;
+  height: 40%;
+}
+
+.clock {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clock p {
+  font-size: 36px;
+  background-image: linear-gradient(135deg, #B8D087, #00996D);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}

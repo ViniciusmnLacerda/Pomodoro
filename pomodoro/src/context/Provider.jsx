@@ -11,6 +11,7 @@ function Provider({ children }) {
   const [wasStarted, setWasStarted] = useState(false);
   const [totalTimeWork, setTotalTimeWork] = useState(1800);
   const [totalTimeBreak, setTotalTimeBreak] = useState(300);
+  const [session, setSession] = useState(1);
   const [user, setUser] = useState({
     userWorkMinutes: 30,
     userWorkSeconds: 0,
@@ -18,7 +19,6 @@ function Provider({ children }) {
     userBreakSeconds: 0,
     userTotalTimeWork: 1800,
     userTotalTimeBreak: 300,
-    sessions: 5,
   });
 
   const value = {
@@ -30,6 +30,7 @@ function Provider({ children }) {
     openSettings,
     wasStarted,
     user,
+    session,
     setControlStopWatch,
     setTotalTimeWork,
     setTimeToWork,
@@ -38,6 +39,7 @@ function Provider({ children }) {
     setOpenSettings,
     setWasStarted,
     setUser,
+    setSession,
   };
 
   return (

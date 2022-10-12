@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Context from '../context/Context';
+import '../syles/Timers.css';
 
 function TimerBreak() {
   const {
@@ -9,6 +10,7 @@ function TimerBreak() {
     setTimeToWork,
     setTotalTimeWork,
     user,
+    setSession,
   } = useContext(Context);
 
   // eslint-disable-next-line consistent-return
@@ -21,6 +23,7 @@ function TimerBreak() {
         clearInterval(breakSecondsInterval);
         setTotalTimeWork(user.userTotalTimeWork);
         setTimeToWork((prevState) => !prevState);
+        setSession((prevState) => prevState + 1);
       }
       return () => clearInterval(breakSecondsInterval);
     }
@@ -34,9 +37,11 @@ function TimerBreak() {
   };
 
   return (
-    <div>
-      <p>{setTimeLeft()}</p>
-      <p>BREAK</p>
+    <div className="timer">
+      <div className="clock">
+        <p>{setTimeLeft()}</p>
+      </div>
+      <p>Break!</p>
     </div>
   );
 }

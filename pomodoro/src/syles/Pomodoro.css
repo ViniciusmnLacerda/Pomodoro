@@ -1,0 +1,32 @@
+.pomodoro-card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 16px 28px 0 rgb(0 0 0 / 80%), 0 25px 55px 0 rgb(0 0 0 / 21%);
+  background-color: #1F2025;
+}
+
+header {
+  width: 100%;
+  height: 65px;
+  border-bottom: solid #18191d 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px ;
+}
+
+header h1 {
+  background-image: linear-gradient(135deg, #B8D087, #00996D);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 550px) {
+  .pomodoro-card {
+    width: 400px;
+    height: 500px;
+  }
+}
