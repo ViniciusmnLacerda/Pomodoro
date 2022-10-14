@@ -16,16 +16,20 @@ function Pomodoro() {
       <header>
         <h1>Pomodoro</h1>
       </header>
+      <div className="settings-btn">
+        <SettingsButton />
+      </div>
       {timeToWork ? (
         <TimerWork />
       ) : (
         <TimerBreak />
       )}
-      <StartButton />
-      <PauseButton />
-      <SettingsButton />
+      <div className="buttons-row">
+        <StartButton />
+        <PauseButton />
+        <RestartButton />
+      </div>
       {openSettings && <Settings />}
-      <RestartButton />
     </main>
   );
 }

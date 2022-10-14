@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { IoSettings } from 'react-icons/io5';
 import Context from '../context/Context';
 
 function SettingsButton() {
@@ -31,7 +32,7 @@ function SettingsButton() {
       type="button"
       onClick={handleClick}
     >
-      settings
+      <IoSettings />
     </button>
   );
 }
