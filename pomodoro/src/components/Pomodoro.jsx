@@ -13,6 +13,11 @@ function Pomodoro() {
   const { timeToWork, openSettings } = useContext(Context);
   return (
     <main className="pomodoro-card">
+      {openSettings && (
+        <div className="settings">
+          <Settings />
+        </div>
+      )}
       <header>
         <h1>Pomodoro</h1>
       </header>
@@ -24,12 +29,11 @@ function Pomodoro() {
       ) : (
         <TimerBreak />
       )}
-      <div className="buttons-row">
+      <div className={openSettings ? 'no-display' : 'buttons-row'}>
         <StartButton />
         <PauseButton />
         <RestartButton />
       </div>
-      {openSettings && <Settings />}
     </main>
   );
 }

@@ -58,8 +58,8 @@ function TimerBreak() {
             />
           )}
         </ProgressProvider>
-        <p>Break!</p>
       </div>
+      <p>Break!</p>
     </div>
   );
 }

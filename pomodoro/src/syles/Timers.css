@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .clock {
@@ -25,9 +26,8 @@
   -webkit-text-fill-color: transparent;
 }
 
-.clock p:nth-child(2) {
+.timer p {
   font-size: 25px;
   color: #636779;
-  position: relative;
-  top: 10px;
+  margin-top: 20px;
 }

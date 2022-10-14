@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+import { GrFormClose } from 'react-icons/gr';
 import Context from '../context/Context';
+import '../syles/Settings.css';
 
 function Settings() {
   const {
@@ -65,14 +67,17 @@ function Settings() {
   };
 
   return (
-    <div>
-      <button
-        type="button"
-        onClick={closeSettings}
-      >
-        close settings without save
-      </button>
-      <form>
+    <div className="settings-container">
+      <div className="close-btn">
+        <p>Settings</p>
+        <button
+          type="button"
+          onClick={closeSettings}
+        >
+          <GrFormClose />
+        </button>
+      </div>
+      <form className="settings-form">
         <fieldset>
           <legend>Pomodoro</legend>
           <label htmlFor="userWorkMinutes">
@@ -128,12 +133,14 @@ function Settings() {
           </label>
         </fieldset>
       </form>
-      <button
-        type="button"
-        onClick={saveSettings}
-      >
-        close setting after saving
-      </button>
+      <div className="apply-btn">
+        <button
+          type="button"
+          onClick={saveSettings}
+        >
+          Apply
+        </button>
+      </div>
     </div>
   );
 }

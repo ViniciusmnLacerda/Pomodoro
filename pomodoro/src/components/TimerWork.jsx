@@ -57,8 +57,8 @@ function TimerWork() {
             />
           )}
         </ProgressProvider>
-        <p>{`Session ${session}`}</p>
       </div>
+      <p>{`Session ${session}`}</p>
     </div>
   );
 }
