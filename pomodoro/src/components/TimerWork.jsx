@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import Context from '../context/Context';
 import '../syles/Timers.css';
+import ProgressProvider from './ProgressProvider';
 
 function TimerWork() {
   const {
@@ -35,12 +38,27 @@ function TimerWork() {
     return timeLeft;
   };
 
+  const percentage = (100 - ((+totalTimeWork * 100) / (+user.userTotalTimeWork)));
+
   return (
     <div className="timer">
       <div className="clock">
-        <p>{setTimeLeft()}</p>
+        <ProgressProvider valueStart={10} valueEnd={percentage}>
+          {(value) => (
+            <CircularProgressbar
+              value={value}
+              text={setTimeLeft()}
+              strokeWidth={3}
+              background
+              styles={buildStyles({
+                backgroundColor: '#EAE9E5',
+                stroke: `rgba(100, 152, 199, ${percentage / 100})`,
+              })}
+            />
+          )}
+        </ProgressProvider>
+        <p>{`Session ${session}`}</p>
       </div>
-      <p>{`Session ${session}`}</p>
     </div>
   );
 }
