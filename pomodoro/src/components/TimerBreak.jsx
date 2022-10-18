@@ -23,9 +23,10 @@ function TimerBreak() {
         setTotalTimeBreak((prevState) => prevState - 1);
       }, 1000);
       if (totalTimeBreak === 0) {
+        setTimeToWork((prevState) => !prevState);
         clearInterval(breakSecondsInterval);
         setTotalTimeWork(user.userTotalTimeWork);
-        setTimeToWork((prevState) => !prevState);
+        setTotalTimeBreak(user.userTotalTimeBreak);
         setSession((prevState) => prevState + 1);
       }
       return () => clearInterval(breakSecondsInterval);

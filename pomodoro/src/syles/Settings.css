@@ -10,7 +10,7 @@
 
 .settings-container {
   width: 80%;
-  height: 65%;
+  height: 70%;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
@@ -43,6 +43,50 @@
 .settings-form {
   width: 100%;
   height: calc(100% - 90px);
+  border-bottom: solid rgb(228, 228, 228) 1px;
+}
+
+.stn {
+  width: 100%;
+  height: 50%;
+}
+
+.stn-title {
+  width: 100%;
+  height: 35px;
+  border-bottom: solid rgb(228, 228, 228) 1px;
+  border-top: solid rgb(228, 228, 228) 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stn-title p {
+  font-size: 22px;
+  color: #636779;
+}
+
+.stn-form {
+  width: 100%;
+  height: calc(100% - 35px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.stn-form label {
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #636779;
+}
+
+.stn-form label input {
+  height: 28px;
 }
 
 .apply-btn {
@@ -52,7 +96,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 30px;
+  top: 20px;
+  padding-top: 5px;
 }
 
 .apply-btn button {
@@ -67,6 +112,8 @@
   text-align: center;
   cursor: pointer;
 }
+
+
 @media screen and (min-width: 550px) {
   .settings {
     width: 400px;

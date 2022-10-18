@@ -12,6 +12,7 @@ function RestartButton() {
     setIsPaused,
     setOpenSettings,
     setTimeToWork,
+    setSession,
   } = useContext(Context);
 
   const handleClick = () => {
@@ -29,6 +30,7 @@ function RestartButton() {
     setWasStarted(false);
     setOpenSettings(false);
     setTimeToWork(true);
+    setSession(1);
   };
 
   return (

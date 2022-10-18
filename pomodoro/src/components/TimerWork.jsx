@@ -23,9 +23,10 @@ function TimerWork() {
         setTotalTimeWork((prevState) => prevState - 1);
       }, 1000);
       if (totalTimeWork === 0) {
+        setTimeToWork((prevState) => !prevState);
         clearInterval(workSecondsInterval);
         setTotalTimeBreak(user.userTotalTimeBreak);
-        setTimeToWork((prevState) => !prevState);
+        setTotalTimeWork(user.userTotalTimeWork);
       }
       return () => clearInterval(workSecondsInterval);
     }

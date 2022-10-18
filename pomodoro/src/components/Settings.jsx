@@ -78,60 +78,68 @@ function Settings() {
         </button>
       </div>
       <form className="settings-form">
-        <fieldset>
-          <legend>Pomodoro</legend>
-          <label htmlFor="userWorkMinutes">
-            Minutes
-            <input
-              type="number"
-              id="userWorkMinutes"
-              name="userWorkMinutes"
-              max="59"
-              min="1"
-              value={user.userWorkMinutes}
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="userWorkSeconds">
-            Seconds
-            <input
-              type="number"
-              id="userWorkSeconds"
-              name="userWorkSeconds"
-              max="59"
-              min="1"
-              value={user.userWorkSeconds}
-              onChange={handleChange}
-            />
-          </label>
-        </fieldset>
-        <fieldset>
-          <legend>Rest</legend>
-          <label htmlFor="userBreakMinutes">
-            Minutes
-            <input
-              type="number"
-              id="userBreakMinutes"
-              name="userBreakMinutes"
-              max="59"
-              min="1"
-              value={user.userBreakMinutes}
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="userBreakSeconds">
-            Seconds
-            <input
-              type="number"
-              id="userBreakSeconds"
-              name="userBreakSeconds"
-              max="59"
-              min="1"
-              value={user.userBreakSeconds}
-              onChange={handleChange}
-            />
-          </label>
-        </fieldset>
+        <div className="stn">
+          <div className="stn-title">
+            <p>Work</p>
+          </div>
+          <div className="stn-form">
+            <label htmlFor="userWorkMinutes">
+              Minutes
+              <input
+                type="number"
+                id="userWorkMinutes"
+                name="userWorkMinutes"
+                max="59"
+                min="1"
+                value={user.userWorkMinutes}
+                onChange={handleChange}
+              />
+            </label>
+            <label htmlFor="userWorkSeconds">
+              Seconds
+              <input
+                type="number"
+                id="userWorkSeconds"
+                name="userWorkSeconds"
+                max="59"
+                min="1"
+                value={user.userWorkSeconds}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="stn">
+          <div className="stn-title">
+            <p>Break</p>
+          </div>
+          <div className="stn-form">
+            <label htmlFor="userBreakMinutes">
+              Minutes
+              <input
+                type="number"
+                id="userBreakMinutes"
+                name="userBreakMinutes"
+                max="59"
+                min="1"
+                value={user.userBreakMinutes}
+                onChange={handleChange}
+              />
+            </label>
+            <label htmlFor="userBreakSeconds">
+              Seconds
+              <input
+                type="number"
+                id="userBreakSeconds"
+                name="userBreakSeconds"
+                max="59"
+                min="1"
+                value={user.userBreakSeconds}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+        </div>
       </form>
       <div className="apply-btn">
         <button
