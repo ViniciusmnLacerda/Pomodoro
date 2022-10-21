@@ -20,10 +20,10 @@ Users should be able to:
 
 ### Screenshots
 <div>
-  <img src="rdm1.png" alt="1" />
-  <img src="rdm2.png" alt="2" />
-  <img src="rdm3.png" alt="3" />
-  <img src="rdm4.png" alt="4" />
+  <img src="rmd1.png" alt="1" widht="350px"/>
+  <img src="rdm2.png" alt="2" widht="350px"/>
+  <img src="rdm3.png" alt="3" widht="350px"/>
+  <img src="rdm4.png" alt="4" widht="350px"/>
 </div>
 
 ### Local usage
