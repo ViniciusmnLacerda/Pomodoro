@@ -7,7 +7,7 @@ This project is a pomodoro application, widely used during studies or moments of
 This project was built with React and Context API
 
 ### Demo
-- [Live project](https://viniciuslacerda-recipes-app.vercel.app/)
+- [Live project](https://viniciuslacerda-pomodoro.vercel.app/)
 
 ### Screenshots
 <div>
